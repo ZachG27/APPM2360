@@ -1,0 +1,112 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\title{Differential Equations Homework 02}
+\author{Your Name}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem 3}
+
+Solve the following differential equations or initial value problems:
+
+\subsection*{(a) Solve: $\frac{dy}{dt} = \frac{t^2 + 7}{y^4 - 4y^3}$, $y(1) = 2$}
+
+This equation is separable, so we can rewrite it as:
+\[
+\frac{y^4 - 4y^3}{dy} = (t^2 + 7) dt
+\]
+
+We then integrate both sides:
+
+\[
+\int \frac{y^4 - 4y^3}{dy} = \int (t^2 + 7) dt
+\]
+
+Performing the integration:
+
+\[
+\int (y^4 - 4y^3) dy = \frac{y^5}{5} - y^4 \quad \text{and} \quad \int (t^2 + 7) dt = \frac{t^3}{3} + 7t
+\]
+
+Thus, the implicit solution is:
+
+\[
+\frac{y^5}{5} - y^4 = \frac{t^3}{3} + 7t + C
+\]
+
+To find the constant $C$, use the initial condition $y(1) = 2$:
+
+\[
+\frac{2^5}{5} - 2^4 = \frac{1^3}{3} + 7(1) + C
+\]
+
+Simplifying:
+
+\[
+\frac{32}{5} - 16 = \frac{1}{3} + 7 + C
+\]
+
+\[
+\frac{32}{5} - \frac{80}{5} = \frac{1}{3} + 7 + C
+\]
+
+\[
+\frac{-48}{5} = \frac{1}{3} + 7 + C
+\]
+
+Solve for $C$:
+
+\[
+C = -\frac{48}{5} - 7 - \frac{1}{3}
+\]
+
+Simplifying further yields the value of $C$, giving the implicit solution.
+
+\subsection*{(b) Solve: $\frac{dy}{dt} = \cos^2(y) \ln(t)$}
+
+This equation is separable, so we rewrite it as:
+
+\[
+\frac{1}{\cos^2(y)} dy = \ln(t) dt
+\]
+
+Integrating both sides:
+
+\[
+\int \sec^2(y) dy = \int \ln(t) dt
+\]
+
+The integrals are straightforward:
+
+\[
+\tan(y) = \frac{t \ln(t) - t + C}{t}
+\]
+
+We solve this equation for $y$ to get the explicit solution.
+
+\subsection*{(c) Solve: $(t^2 + t)y' + y^2 = ty^2$, $y(1) = -1$}
+
+First, simplify the equation:
+
+\[
+(t^2 + t)y' = ty^2 - y^2
+\]
+
+\[
+y' = \frac{y^2(t - 1)}{t(t + 1)}
+\]
+
+This is also separable, so we rewrite it as:
+
+\[
+\frac{dy}{y^2(t - 1)} = \frac{dt}{t(t + 1)}
+\]
+
+We then integrate both sides and use the initial condition $y(1) = -1$ to find the constant and write the explicit solution for $y(t)$.
+
+\end{document}
