@@ -1,0 +1,141 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{pgfplots}
+\usepackage{float}
+\usepackage{pgfplotstable}
+\usepackage{booktabs} 
+\pgfplotsset{compat=1.18}
+
+% Setup for homework style
+\geometry{margin=1in}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{APPM 2360: Differential Equations}
+\rhead{Homework 3}
+\cfoot{\thepage}
+
+\title{Homework 3}
+\author{Zachariah Galdston}
+\date{9/12/2024}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem 1}
+
+\section*{Problem 2}
+\textbf{Problem Statement:} Find the order, linearity, homogeneity, and the variablity of the coefficients of the following:
+
+%I want to make a table for this problem, with the diff eqs a-e on the left and then the solutions on the right
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        \textbf{Problem} & \textbf{Diff Eq} & \textbf{Order} & \textbf{Linearity} & \textbf{Homogeneity} & \textbf{coefficients} \\
+        \hline
+        (a) & $y'' + 2y' + y = 0$ & 2 & Linear & Homogeneous & Constant \\
+        \hline
+        (b) & $\ddot x + 2\dot x + tx = \sin(t)$ & 2 & Linear & Non-Homogeneous & Variable \\
+        \hline
+        (c) & $\cos(y') + ty = 0$ & 1 & Non-Linear & Homogeneous & Variable \\
+        \hline
+        (d) & $y'' + ey' + \pi y = 0$ & 2 & Linear & Homogeneous & Constant \\
+        \hline
+        (e) & $y' + \frac{1}{1+t^2}y = 7$ & 1 & Linear & Non-Homogeneous & Variable \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\section*{Problem 6}
+\textbf{Problem Statement:} Find the general solution to the non homogenoues ODE $y' + \frac{1}{t+1}y = 2$
+\textbf{Solution:} We will solve using the superposition principal. $y_{G,NH} = y_{G,H} + y_{P,NH}$
+\subsection*{(a)}
+\textbf{Problem Satement:} Show that $y_p = \frac{t^2 + 2t}{t+1}$ is a particular solution to the Non-Homogeneous ODE $y' + \frac{1}{t+1}y = 2$
+\textbf{Solution:} We will start by finding the derivative of $y_p$
+\begin{align*}
+y_p &= \frac{t^2 + 2t}{t+1} \\
+y_p' &= \frac{(t+1)(2t+2) - (t^2 + 2t)}{(t+1)^2} \\
+y_p' &= \frac{2t^2 + 2t + 2t + 2 - t^2 - 2t}{(t+1)^2} \\
+y_p' &= \frac{t^2 + 4t + 2}{(t+1)^2}
+\end{align*}
+
+Now we will plug $y_p$ and $y_p'$ into the Non-Homogeneous ODE
+\begin{align*}
+y_p' + \frac{1}{t+1}y_p &= 2 \\
+\frac{t^2 + 4t + 2}{(t+1)^2} + \frac{t^2 + 2t}{(t+1)^2} &= 2 \\
+\frac{t^2 + 4t + 2 }{t^2 + 2t + 1} + \frac{t^2+2}{t^2 + 2t + 1} &= 2 \\
+\frac{2t^2 + 4t + 2}{t^2 + 2t + 1} &= 2 \\
+\frac{2(t^2 + 2t + 1)}{t^2 + 2t + 1} &= 2 \\
+2 &= 2
+\end{align*}
+
+\subsection*{(b)}
+\textbf{Problem Statement:} Find the general solution to the Non-Homogeneous ODE $y' + \frac{1}{t+1}y = 2$
+\textbf{Solution:} We will use the superposition principal to find the general solution to the Non-Homogeneous ODE
+\begin{align*}
+y_{G,NH} &= y_{G,H} + y_{P,NH} \\
+\end{align*}
+
+We will start by finding the general solution to the Homogeneous ODE
+\begin{align*}
+y' + \frac{1}{t+1}y &= 0 \\
+\frac{1}{y}dy = -\frac{1}{t+1}dt \\
+\ln|y| = -\ln|t+1| + c \\
+y = \frac{c}{t+1}
+\end{align*}
+
+Now we will find the general solution to the Non-Homogeneous ODE
+\begin{align*}
+y_{G,NH} &= \frac{c}{t+1} + \frac{t^2 + 2t}{t+1} \\
+\end{align*}
+
+\section*{Problem 8}
+\textbf{Problem Statement:} Solve the differential equation $(x+1)\frac{dy}{x}+y = \ln(t)$
+
+\textbf{Solution:} We will solve using the integrating factor method
+We will start by rewriting the equation
+\[
+\frac{dy}{dt} + \frac{y}{t+1} = \frac{lnt}{t+1}
+\]
+
+Set right side equal to zero
+\[
+\frac{dy}{dt} + \frac{y}{t+1} = 0
+\]
+
+Solve for y
+\begin{align*}
+\frac{dy}{dt} &= -\frac{y}{t+1} \\
+\frac{dy}{y} &= -\frac{dt}{t+1} \\
+\end{align*}
+
+Integrate both sides
+\begin{align*}
+\int \frac{1}{y} dy &= -\frac{1}{t+1} dt \\
+\ln|y| &= -ln|t+1| + c \\
+y &= e^{-\ln|t+1| + c} \\
+y&= \frac{c}{t+1}
+\end{align*}
+
+Solve for integrating factor $\mu$
+\begin{align*}
+\mu &= \frac{1}{y_{G,H}} \\
+\mu &= t+1
+\end{align*}
+
+
+Multiply orignial equation by $\mu$
+\begin{align*}
+\mu \frac{dy}{dt} + \mu \frac{y}{t+1} &= \mu \frac{lnt}{t+1} \\
+D[(t+1)y] &= \frac{\ln(t)}{t+1}(t+1) \\
+(t+1)y &= \int \ln(t) \\
+(t+1)y &= t\ln(t) - t + c \\
+y &= \frac{t\ln(t) - t + c}{t+1}
+\end{align*}
+
+\end{document}
