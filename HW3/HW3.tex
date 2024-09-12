@@ -152,6 +152,7 @@ Since the second property is not satisfied, the operator $L(\vec{\textbf{y}}) = 
 
 \section*{Problem 4}
 \textbf{Problem Statement:} Show that if $y_1(t)$ and $y_2(t)$ are solutions of $y' + p(t)y = 0$, then so are $y_1(t) + y_2(t)$ and $cy_1(t)$ for any constant $c$.
+
 \textbf{Solution:} We will start by assuming that $y_1(t)$ and $y_2(t)$ are solutions of $y' + p(t)y = 0$ and follow the properties of linear homogenoues ODEs. Thus,
 \begin{align*}
     y_1' + p(t)y_1 &= 0 \\
@@ -165,11 +166,13 @@ Using the first property, we will show that $y_1(t) + y_2(t)$ is a solution of $
     y_1' + p(t)y_1 + y_2' + p(t)y_2 &= 0 + 0 = 0 
 \end{align*}
 
-This proves that $y_1(t) + y_2(t)$ is a solution of $y' + p(t)y = 0$. Next we will show that $cy_1(t)$ is a solution of $y' + p(t)y = 0$
+This proves that $y_1(t) + y_2(t)$ is a solution of $y' + p(t)y = 0$. 
+
+Next we will show that $cy_1(t)$ is a solution of $y' + p(t)y = 0$
 \begin{align*}
     (cy_1)' + p(t)(cy_1) &= 0 \\
     cy_1' + cp(t)y_1 &= 0 \\
-    c(y_1' + p(t)y_1) &= 0 \cdot 0 = 0 
+    c(y_1' + p(t)y_1) &= c \cdot 0 = 0 
 \end{align*}
 
 This proves that $cy_1(t)$ is a solution of $y' + p(t)y = 0$.
