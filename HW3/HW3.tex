@@ -29,9 +29,58 @@
 \section*{Problem 1}
 
 \textbf{Problem Statement:} Determine weather Picard's Theorem can be used to show the existence of a unique solution in an open interval containing t = 0
-\textbf{Solution:} Picard's theorem states:
-\subsection*{(a) $y' = ty^{\frac{4}{3}}, y(0) = 0$} 
+
+\textbf{Solution:} Picards theorem sates that if $f(t,y)$ is continuous in some region $R$ defined by 
+\[ \{(t,y) \,|\, a < t < b, c < y < d\} \] 
+
+and $(t_0, y_0) \in \mathbb{R}$. Then there exists a postivie number $h$ such that the IVP
+\[ y' = f(t,y), \quad y(t_0) = y_0\]
+Has a solution in an open interval containing $(t_0 - h, t_0 + h)$. The solution is unique if $\frac{\partial f}{\partial y}$ is continuous in $R$
+
+\subsection*{(a) $y' = ty^{\frac{4}{3}}, \quad y(0) = 0$}
+\textbf{Problem Statement:} Determine weather Picard's Theorem can be used to show the existence of a unique solution in an open interval containing t = 0
+
+\textbf{Solution:} We will start by determining the continutiy of the function $f(t) = ty^{\frac{4}{3}}$. We will start by finding the partial derivative of $f$ with respect to $y$ \\
+
+$f(t) = ty^{\frac{4}{3}}$ is continuous for all $t$ and $y$ in the region $R$ defined by $a \leq t \leq b$ and $|y - y_0| \leq M$ for some constant $M$. Therefore, Picard's Theorem can be used to show the existence of a  solution in an open interval containing $t = 0$. \\
+
+Next we will determine the uniqueness of the solution. We will start by finding the partial derivative of $f$ with respect to $y$
+
+\begin{align*}
+\frac{\partial f}{\partial y} &= \frac{4}{3}ty^{\frac{1}{3}}
+\end{align*}
+
+Since $\frac{\partial f}{\partial y}$ is continuous for all $t$ and $y$ in the region $R$ defined by $a \leq t \leq b$ and $|y - y_0| \leq M$ for some constant $M$, Picard's Theorem can be used to show the existence of a unique solution in an open interval containing $t = 0$.
+
+\subsection*{(b) $y' = ty^{1/3}, \quad y(0) = 0$}
+\textbf{Problem Statement:} Determine weather Picard's Theorem can be used to show the existence of a unique solution in an open interval containing t = 0
+
+\textbf{Solution:} We will start by determining the continutiy of the function $f(t) = ty^{\frac{1}{3}}$ 
+
+$f(t) = ty^{\frac{1}{3}}$ is continuous for all $t$ and $y$ in the region $R$ Therefore, Picard's Theorem can be used to show the existence of a  solution in an open interval containing $t = 0$. \\
+
+Next we will determine the uniqueness of the solution. We will start by finding the partial derivative of $f$ with respect to $y$ \\
+\begin{align*}
+\frac{\partial f}{\partial y} &= \frac{1}{3}ty^{-\frac{2}{3}}
+\end{align*}
+
+Since $\frac{\partial f}{\partial y}$ is not continuous for all $t$ and $y$ in the region $R$ defined by $a \leq t \leq b$ and $|y - y_0| \leq M$ for some constant $M$, Picard's Theorem cannot be used to show the existence of a unique solution in an open interval containing $t = 0$.
+
+\subsection*{(c) $y' = ty^{\frac{1}{3}}, \quad y(0) = 1$}
+\textbf{Problem Statement:} Determine weather Picard's Theorem can be used to show the existence of a unique solution in an open interval containing t = 0
+
+\textbf{Solution:} We will start by determining the continutiy of the function $f(t) = ty^{\frac{1}{3}}$
+
+$f(t) = ty^{\frac{1}{3}}$ is continuous for all $t$ and $y$ in the region $R$ defined by $a \leq t \leq b$ and $|y - y_0| \leq M$ for some constant $M$. Therefore, Picard's Theorem can be used to show the existence of a  solution in an open interval containing $t = 0$. \\
+Next we will determine the uniqueness of the solution. We will start by finding the partial derivative of $f$ with respect to $y$ \\
+\begin{align*}
+\frac{\partial f}{\partial y} &= \frac{1}{3}ty^{-\frac{2}{3}}
+\end{align*}
+
+Since $\frac{\partial f}{\partial y}$ is continuous for all $t$ and $y$ in the region $R$ defined by $a \leq t \leq b$ and $|y - y_0| \leq M$ for some constant $M$, Picard's Theorem can be used to show the existence of a unique solution in an open interval containing $t = 0$.
+
 \section*{Problem 2}
+
 \textbf{Problem Statement:} Find the order, linearity, homogeneity, and the variablity of the coefficients of the following:
 
 %I want to make a table for this problem, with the diff eqs a-e on the left and then the solutions on the right
@@ -54,11 +103,109 @@
     \end{tabular}
 \end{table}
 
+\section*{Problem 3}
+
+\textbf{Problem Statement:} Which of the following operators are linear?
+
+\textbf{Solution:} An operator is linear if it satisfies the following properties: 
+\begin{align*}
+    L(k\vec{\textbf{u}}) = kL(\vec{\textbf{u}}), \quad k \in \mathbb{R} \\
+    L(\vec{\textbf{u}} + \vec{\textbf{w}}) = L(\vec{\textbf{u}}) + L(\vec{\textbf{w}})
+\end{align*}
+
+\subsection*{(a) $L(\vec{\textbf{y}}) = y' + 2ty$}
+\textbf{Solution:} We will start by checking the first property
+\begin{align*}
+    L(k\vec{\textbf{u}}) &= kL(\vec{\textbf{u}}) \\
+    L(ky) &= k(y' + 2ty) \\
+    ky' + 2kty &= ky' + 2kty \\
+    ky' + 2kty &= ky' + 2kty
+\end{align*}
+
+Now we will check the second property
+
+\begin{align*}
+    L(\vec{\textbf{u}} + \vec{\textbf{w}}) &= L(\vec{\textbf{u}}) + L(\vec{\textbf{w}}) \\
+    L(y_1 + y_2) &= L(y_1) + L(y_2) \\
+    y_1' + 2ty_1 + y_2' + 2ty_2 &= y_1' + 2ty_1 + y_2' + 2ty_2
+\end{align*}
+
+Since both properties are satisfied, the operator $L(\vec{\textbf{y}}) = y' + 2ty$ is linear
+
+\subsection*{(b) $L(\vec{\textbf{y}}) = y'' + (1-y^2) + y$}
+\textbf{Solution:} We will start by checking the first property
+\begin{align*}
+    L(k\vec{\textbf{u}}) &= kL(\vec{\textbf{u}}) \\
+    L(ky) &= k(y'' + (1-y^2) + y) \\
+    ky'' + (1-(ky)^2) + ky &\neq ky'' + k(1-y^2) + ky \\
+\end{align*}
+
+This does not satisfy the first property, so the operator $L(\vec{\textbf{y}}) = y'' + (1-y^2) + y$ is not linear. We will check the second property to be thorough.
+
+\begin{align*}
+    L(\vec{\textbf{u}} + \vec{\textbf{w}}) &= L(\vec{\textbf{u}}) + L(\vec{\textbf{w}}) \\
+    L(y_1 + y_2) &= L(y_1) + L(y_2) \\
+    y_1'' + (1-y_1^2) + y_1 + y_2'' + (1-y_2^2) + y_2 &\neq y_1'' + (1-y_1^2) + y_1 + y_2'' + (1-y_2^2) + y_2
+\end{align*}
+
+Since the second property is not satisfied, the operator $L(\vec{\textbf{y}}) = y'' + (1-y^2) + y$ is not linear.
+
+\section*{Problem 4}
+\textbf{Problem Statement:} Show that if $y_1(t)$ and $y_2(t)$ are solutions of $y' + p(t)y = 0$, then so are $y_1(t) + y_2(t)$ and $cy_1(t)$ for any constant $c$.
+\textbf{Solution:} We will start by assuming that $y_1(t)$ and $y_2(t)$ are solutions of $y' + p(t)y = 0$ and follow the properties of linear homogenoues ODEs. Thus,
+\begin{align*}
+    y_1' + p(t)y_1 &= 0 \\
+    y_2' + p(t)y_2 &= 0
+\end{align*}
+
+Using the first property, we will show that $y_1(t) + y_2(t)$ is a solution of $y' + p(t)y = 0$
+\begin{align*}
+    (y_1 + y_2)' + p(t)(y_1 + y_2) &= 0 \\
+    y_1' + y_2' + p(t)y_1 + p(t)y_2 &= 0 \\
+    y_1' + p(t)y_1 + y_2' + p(t)y_2 &= 0 + 0 = 0 
+\end{align*}
+
+This proves that $y_1(t) + y_2(t)$ is a solution of $y' + p(t)y = 0$. Next we will show that $cy_1(t)$ is a solution of $y' + p(t)y = 0$
+\begin{align*}
+    (cy_1)' + p(t)(cy_1) &= 0 \\
+    cy_1' + cp(t)y_1 &= 0 \\
+    c(y_1' + p(t)y_1) &= 0 \cdot 0 = 0 
+\end{align*}
+
+This proves that $cy_1(t)$ is a solution of $y' + p(t)y = 0$.
+
+\section*{Problem 5}
+\textbf{Problem Statement:} Verify that the given functions $y_1(t)$ and $y_2(t)$ are solutions of the given differential equation. Then show that $c_1y_1(t) + c_2y_2(t)$ is also a solution for any real numbers $c_1$ and $c_2$.
+\subsection*{(a) $y'' - y' + 6y = 0; \quad y_1(t) = e^{3t}, \quad y_2(t) = e^{-2t}$}
+\textbf{Solution:} We will start by verifying that $y_1(t)$ and $y_2(t)$ are solutions of the given differential equation.
+\begin{align*}
+    y_1(t) &= e^{3t} \\
+    y_1' &= 3e^{3t} \\
+    y_1'' &= 9e^{3t} \\
+    9e^{3t} - 3e^{3t} - 6e^{3t} &= 0
+\end{align*}
+
+Therefore, $y_1(t)$ is a solution of the given differential equation. Next we will verify that $y_2(t)$ is a solution
+\begin{align*}
+    y_2(t) &= e^{-2t} \\
+    y_2' &= -2e^{-2t} \\
+    y_2'' &= 4e^{-2t} \\
+    4e^{-2t} + 2e^{-2t} - 6e^{-2t} &= 0
+\end{align*}
+
+Therefore, $y_2(t)$ is a solution of the given differential equation. Next we will show that $c_1y_1(t) + c_2y_2(t)$ is also a solution for any real numbers $c_1$ and $c_2$.
+
+\begin{align*}
+    c_1y_1(t) + c_2y_2(t) &= c_1e^{3t} + c_2e^{-2t} \\
+\end{align*}
+
 \section*{Problem 6}
 \textbf{Problem Statement:} Find the general solution to the non homogenoues ODE $y' + \frac{1}{t+1}y = 2$
+
 \textbf{Solution:} We will solve using the superposition principal. $y_{G,NH} = y_{G,H} + y_{P,NH}$
 \subsection*{(a)}
 \textbf{Problem Satement:} Show that $y_p = \frac{t^2 + 2t}{t+1}$ is a particular solution to the Non-Homogeneous ODE $y' + \frac{1}{t+1}y = 2$
+
 \textbf{Solution:} We will start by finding the derivative of $y_p$
 \begin{align*}
 y_p &= \frac{t^2 + 2t}{t+1} \\
@@ -79,6 +226,7 @@ y_p' + \frac{1}{t+1}y_p &= 2 \\
 
 \subsection*{(b)}
 \textbf{Problem Statement:} Find the general solution to the Non-Homogeneous ODE $y' + \frac{1}{t+1}y = 2$
+
 \textbf{Solution:} We will use the superposition principal to find the general solution to the Non-Homogeneous ODE
 \begin{align*}
 y_{G,NH} &= y_{G,H} + y_{P,NH} \\
@@ -96,6 +244,8 @@ Now we will find the general solution to the Non-Homogeneous ODE
 \begin{align*}
 y_{G,NH} &= \frac{c}{t+1} + \frac{t^2 + 2t}{t+1} \\
 \end{align*}
+
+\section*{Problem 7}
 
 \section*{Problem 8}
 \textbf{Problem Statement:} Solve the differential equation $(x+1)\frac{dy}{x}+y = \ln(t)$
