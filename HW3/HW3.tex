@@ -8,6 +8,7 @@
 \usepackage{float}
 \usepackage{pgfplotstable}
 \usepackage{booktabs} 
+\usepackage{amsmath} % Add this line to include the amsmath package
 \pgfplotsset{compat=1.18}
 
 % Setup for homework style
@@ -40,44 +41,45 @@ Has a solution in an open interval containing $(t_0 - h, t_0 + h)$. The solution
 \subsection*{(a) $y' = ty^{\frac{4}{3}}, \quad y(0) = 0$}
 \textbf{Problem Statement:} Determine weather Picard's Theorem can be used to show the existence of a unique solution in an open interval containing t = 0
 
-\textbf{Solution:} We will start by determining the continutiy of the function $f(t) = ty^{\frac{4}{3}}$. We will start by finding the partial derivative of $f$ with respect to $y$ \\
+\textbf{Solution:} We will start by determining the continutiy of the function $f(t) = ty^{\frac{4}{3}}$ by finding the partial derivative of $f$ with respect to $y$ \\
 
-$f(t) = ty^{\frac{4}{3}}$ is continuous for all $t$ and $y$ in the region $R$ defined by $a \leq t \leq b$ and $|y - y_0| \leq M$ for some constant $M$. Therefore, Picard's Theorem can be used to show the existence of a  solution in an open interval containing $t = 0$. \\
+Existence: $f(t) = ty^{\frac{4}{3}}$ is continuous for all $t$ and $y$ in the region $R$. Therefore, Picard's Theorem can be used to show the existence of a  solution in an open interval containing $t = 0$. \\
 
-Next we will determine the uniqueness of the solution. We will start by finding the partial derivative of $f$ with respect to $y$
+Uniqueness: We will find the partial derivative of $f$ with respect to $y$
 
 \begin{align*}
 \frac{\partial f}{\partial y} &= \frac{4}{3}ty^{\frac{1}{3}}
 \end{align*}
 
-Since $\frac{\partial f}{\partial y}$ is continuous for all $t$ and $y$ in the region $R$ defined by $a \leq t \leq b$ and $|y - y_0| \leq M$ for some constant $M$, Picard's Theorem can be used to show the existence of a unique solution in an open interval containing $t = 0$.
+Since $\frac{\partial f}{\partial y}$ is continuous for all $t$ and $y$ in the region $R$Picard's Theorem can be used to show the existence of a unique solution in an open interval containing $t = 0$.
 
 \subsection*{(b) $y' = ty^{1/3}, \quad y(0) = 0$}
 \textbf{Problem Statement:} Determine weather Picard's Theorem can be used to show the existence of a unique solution in an open interval containing t = 0
 
 \textbf{Solution:} We will start by determining the continutiy of the function $f(t) = ty^{\frac{1}{3}}$ 
+\paragraph*{}
+Existence: $f(t) = ty^{\frac{1}{3}}$ is continuous for all $t$ and $y$ in the region $R$ Therefore, Picard's Theorem can be used to show the existence of a  solution in an open interval containing $t = 0$. \\
 
-$f(t) = ty^{\frac{1}{3}}$ is continuous for all $t$ and $y$ in the region $R$ Therefore, Picard's Theorem can be used to show the existence of a  solution in an open interval containing $t = 0$. \\
-
-Next we will determine the uniqueness of the solution. We will start by finding the partial derivative of $f$ with respect to $y$ \\
+Uniqueness: We will find the partial derivative of $f$ with respect to $y$ \\
 \begin{align*}
 \frac{\partial f}{\partial y} &= \frac{1}{3}ty^{-\frac{2}{3}}
 \end{align*}
 
-Since $\frac{\partial f}{\partial y}$ is not continuous for all $t$ and $y$ in the region $R$ defined by $a \leq t \leq b$ and $|y - y_0| \leq M$ for some constant $M$, Picard's Theorem cannot be used to show the existence of a unique solution in an open interval containing $t = 0$.
+Since $\frac{\partial f}{\partial y}$ is not continuous ($\frac{1}{\sqrt[3]{0}^2} = DNE$ ) for all $t$ and $y$ in the region $R$ , Picard's Theorem cannot be used to show the existence of a unique solution in an open interval containing $t = 0$.
 
 \subsection*{(c) $y' = ty^{\frac{1}{3}}, \quad y(0) = 1$}
 \textbf{Problem Statement:} Determine weather Picard's Theorem can be used to show the existence of a unique solution in an open interval containing t = 0
 
 \textbf{Solution:} We will start by determining the continutiy of the function $f(t) = ty^{\frac{1}{3}}$
 
-$f(t) = ty^{\frac{1}{3}}$ is continuous for all $t$ and $y$ in the region $R$ defined by $a \leq t \leq b$ and $|y - y_0| \leq M$ for some constant $M$. Therefore, Picard's Theorem can be used to show the existence of a  solution in an open interval containing $t = 0$. \\
-Next we will determine the uniqueness of the solution. We will start by finding the partial derivative of $f$ with respect to $y$ \\
+Existence: $f(t) = ty^{\frac{1}{3}}$ is continuous for all $t$ and $y$ in the region $R$. Therefore, Picard's Theorem can be used to show the existence of a  solution in an open interval containing $t = 0$. \\
+
+Uniqueness: We will find  the partial derivative of $f$ with respect to $y$ \\
 \begin{align*}
 \frac{\partial f}{\partial y} &= \frac{1}{3}ty^{-\frac{2}{3}}
 \end{align*}
 
-Since $\frac{\partial f}{\partial y}$ is continuous for all $t$ and $y$ in the region $R$ defined by $a \leq t \leq b$ and $|y - y_0| \leq M$ for some constant $M$, Picard's Theorem can be used to show the existence of a unique solution in an open interval containing $t = 0$.
+Since $\frac{\partial f}{\partial y}$ is continuous for all $t$ and $y$ in the region $R$, Picard's Theorem can be used to show the existence of a unique solution in an open interval containing $t = 0$.
 
 \section*{Problem 2}
 
@@ -153,7 +155,7 @@ Since the second property is not satisfied, the operator $L(\vec{\textbf{y}}) = 
 \section*{Problem 4}
 \textbf{Problem Statement:} Show that if $y_1(t)$ and $y_2(t)$ are solutions of $y' + p(t)y = 0$, then so are $y_1(t) + y_2(t)$ and $cy_1(t)$ for any constant $c$.
 
-\textbf{Solution:} We will start by assuming that $y_1(t)$ and $y_2(t)$ are solutions of $y' + p(t)y = 0$ and follow the properties of linear homogenoues ODEs. Thus,
+\textbf{Solution:} Assuming that $y_1(t)$ and $y_2(t)$ are solutions of $y' + p(t)y = 0$ and follow the properties of linear homogenoues ODEs. Thus,
 \begin{align*}
     y_1' + p(t)y_1 &= 0 \\
     y_2' + p(t)y_2 &= 0
@@ -180,6 +182,7 @@ This proves that $cy_1(t)$ is a solution of $y' + p(t)y = 0$.
 \section*{Problem 5}
 \textbf{Problem Statement:} Verify that the given functions $y_1(t)$ and $y_2(t)$ are solutions of the given differential equation. Then show that $c_1y_1(t) + c_2y_2(t)$ is also a solution for any real numbers $c_1$ and $c_2$.
 \subsection*{(a) $y'' - y' + 6y = 0; \quad y_1(t) = e^{3t}, \quad y_2(t) = e^{-2t}$}
+
 \textbf{Solution:} We will start by verifying that $y_1(t)$ and $y_2(t)$ are solutions of the given differential equation.
 \begin{align*}
     y_1(t) &= e^{3t} \\
@@ -201,6 +204,65 @@ Therefore, $y_2(t)$ is a solution of the given differential equation. Next we wi
 \begin{align*}
     c_1y_1(t) + c_2y_2(t) &= c_1e^{3t} + c_2e^{-2t} \\
 \end{align*}
+
+Now we will find the first and second derivatives of $c_1y_1(t) + c_2y_2(t)$
+
+\begin{align*}
+    (c_1y_1 + c_2y_2)' &= 3c_1e^{3t} - 2c_2e^{-2t} \\
+    (c_1y_1 + c_2y_2)'' &= 9c_1e^{3t} + 4c_2e^{-2t} \\
+\end{align*}
+
+Pluging $c_1y_1 + c_2y_2$ into the differential equation,
+
+\begin{align*}
+    9c_1e^{3t} + 4c_2e^{-2t} - 3c_1e^{3t} + 2c_2e^{-2t} - 6c_1e^{3t} - 6c_2e^{-2t} &= 0 \\
+    (9c_1 - 3c_1 - 6c_1)e^{3t} + (4c_2 + 2c_2 - 6c_2)e^{-2t} &= 0 \\
+    0e^{3t} + 0e^{-2t} &= 0 \\
+    0 &= 0
+\end{align*}
+
+Therefore, $c_1y_1(t) + c_2y_2(t)$ is a solution of the given differential equation.
+
+\subsection*{(b) $y'' - 25y = 0; \quad y_1 = cosh(5t); y_2 = sinh(5t)$}
+
+\textbf{Solution:} We will start by verifying that $y_1(t)$ and $y_2(t)$ are solutions of the given differential equation.
+
+\begin{align*}
+    y_1(t) &= cosh(5t) \\
+    y_1' &= 5sinh(5t) \\
+    y_1'' &= 25cosh(5t) \\
+    25cosh(5t) - 25cosh(5t) &= 0
+\end{align*}
+
+Therefore, $y_1(t)$ is a solution of the given differential equation. Next we will verify that $y_2(t)$ is a solution
+
+\begin{align*}
+    y_2(t) &= sinh(5t) \\
+    y_2' &= 5cosh(5t) \\
+    y_2'' &= 25sinh(5t) \\
+    25sinh(5t) - 25sinh(5t) &= 0
+\end{align*}
+
+Therefore, $y_2(t)$ is a solution of the given differential equation. Next we will show that $c_1y_1(t) + c_2y_2(t)$ is also a solution for any real numbers $c_1$ and $c_2$.
+
+\begin{align*}
+    c_1y_1(t) + c_2y_2(t) &= c_1cosh(5t) + c_2sinh(5t) \\
+\end{align*}
+
+Now we will find the first and second derivatives of $c_1y_1(t) + c_2y_2(t)$
+
+\begin{align*}
+    (c_1y_1 + c_2y_2)' &= 5c_1sinh(5t) + 5c_2cosh(5t) \\
+    (c_1y_1 + c_2y_2)'' &= 25c_1cosh(5t) + 25c_2sinh(5t) \\
+\end{align*}
+
+Pluging $c_1y_1 + c_2y_2$ into the differential equation,
+
+\begin{align*}
+    25c_1cosh(5t) + 25c_2sinh(5t) - 25c_1cosh(5t) - 25c_2sinh(5t) &= 0
+\end{align*}
+
+Therefore, $c_1y_1(t) + c_2y_2(t)$ is a solution of the given differential equation.
 
 \section*{Problem 6}
 \textbf{Problem Statement:} Find the general solution to the non homogenoues ODE $y' + \frac{1}{t+1}y = 2$
@@ -235,7 +297,7 @@ y_p' + \frac{1}{t+1}y_p &= 2 \\
 y_{G,NH} &= y_{G,H} + y_{P,NH} \\
 \end{align*}
 
-We will start by finding the general solution to the Homogeneous ODE
+Now we will the general solution to the Homogeneous ODE
 \begin{align*}
 y' + \frac{1}{t+1}y &= 0 \\
 \frac{1}{y}dy = -\frac{1}{t+1}dt \\
@@ -249,12 +311,79 @@ y_{G,NH} &= \frac{c}{t+1} + \frac{t^2 + 2t}{t+1} \\
 \end{align*}
 
 \section*{Problem 7}
+\textbf{Problem Statement:} Cosider the differential equation governing the current of an RL circuit $L\frac{dI}{dt} + RI = E(t)$ Suppose that $R = 100$ ohms, $L = 2.5$ henries, and the constant impressed voltage is $E(t) = E_0 = 110$ volts. Time $t$ is measured in seconds.
+
+\subsection*{(a) If the initial curret is zero, find the current at any time}
+
+\textbf{Solution:} We will start by finding the general solution to the Non-Homogeneous ODE
+
+\begin{align*}
+L\frac{dI}{dt} + RI &= E(t) \\
+2.5\frac{dI}{dt} + 100I &= 110 \\
+\frac{dI}{dt} + 40I &= 44
+\end{align*}
+
+We will use the integrating factor method.
+
+\begin{align*}
+\frac{dI}{dt} + 40I &= 44 \\
+\mu &= e^{\int 40dt} \\
+\mu &= e^{40t} \\
+\end{align*}
+
+Multiply the original equation by $\mu$
+
+\begin{align*}
+e^{40t}\frac{dI}{dt} + 40e^{40t}I &= 44e^{40t} \\
+D[\mu I] &= 44 \mu \\
+e^{40t}I &= \int 44e^{40t} \\
+e^{40t}I &= \frac{44}{40} + ce^{40t} \\
+I &= 1.1 + ce^{-40t}
+\end{align*}
+
+Solve the IVP $I(0) = 0$
+
+\begin{align*}
+0 &= 1.1 + c \\
+c &= -1.1 \\
+I &= 1.1 - 1.1e^{-40t}
+\end{align*}
+
+
+\subsection*{(b) Find the transient and steady state currents)}
+
+\textbf{Solution:} We will start by finding the transient current
+
+\begin{align*}
+I_{transient} &= -1.1e^{-40t} \\
+\lim_{t \to \infty} -1.1e^{-40t} &= 0 \\
+I_{transient} &= 0
+\end{align*}
+
+Next we will find the steady state current
+
+\begin{align*}
+\lim_{t \to \infty} 1.1 + ce^{-40t} &= 1.1 \\
+I_{steady} &= 1.1
+\end{align*}
+
+\subsection*{(c) Find the time required for the current to reach $0.6$ amps}
+
+\textbf{Solution:} Set I = 0.6 and solve for t
+
+\begin{align*}
+0.6 &= 1.1(1 - e^{-40t}) \\
+\frac{0.6}{111} &= 1 - e^{-40t} \\
+e^{-40t} &= \frac{0.5}{1.1} \\
+-40t &= \ln(\frac{0.5}{1.1}) \\
+t &= \frac{\ln(\frac{0.5}{1.1})}{-40}
+\end{align*}
 
 \section*{Problem 8}
 \textbf{Problem Statement:} Solve the differential equation $(x+1)\frac{dy}{x}+y = \ln(t)$
 
 \textbf{Solution:} We will solve using the integrating factor method
-We will start by rewriting the equation
+Rewriting the equation:
 \[
 \frac{dy}{dt} + \frac{y}{t+1} = \frac{lnt}{t+1}
 \]
@@ -293,5 +422,128 @@ D[(t+1)y] &= \frac{\ln(t)}{t+1}(t+1) \\
 (t+1)y &= t\ln(t) - t + c \\
 y &= \frac{t\ln(t) - t + c}{t+1}
 \end{align*}
+
+\section*{Problem 9}
+
+\textbf{Problem Statement:} Use the Euler-Lagrange Two-Stage Method to sole the IVP $\frac{dy}{dt} + 2ty = t^3, \quad y(1) = 1$
+
+\textbf{Solution:} We will start by finding the general solution to the Homogeneous ODE
+
+\begin{align*}
+\frac{dy}{dt} + 2ty &= 0 \\
+\frac{dy}{y} &= -2tdt \\
+\ln|y| &= -t^2 + c \\
+y &= ce^{-t^2}
+\end{align*}
+
+We will now substitute a fucntion $v(t)$ for the constant $c$:
+
+\begin{align*}
+y = v(t)e^{-t^2}
+\end{align*}
+
+We will now determine the function $v(t)$ by substituting $y$ into the oringinal Non-Homogeneous ODE
+
+\begin{align*}
+\frac{dy}{dt} + 2ty &= t^3 \\
+\frac{d(v(t)e^{-t^2})}{dt} + 2t(v(t)e^{-t^2}) &= t^3 \\
+\frac{dv}{dt}e^{-t^2} - 2te^{-t^2}v + 2te^{-t^2}v &= t^3 \\
+\frac{dv}{dt}e^{-t^2} &= t^3 \\
+\frac{dv}{dt} &= t^3e^{t^2} \\
+\end{align*}
+
+Integrating both sides using $u = t^2$,
+
+\begin{align*}
+v &= \frac{1}{2}\int ue^{u}du \\
+v &= \frac{1}{2}(t^2 - 1) + Ce^{-t^2}
+\end{align*}
+
+Now we will substitute $v$ back into the equation for $y$
+
+\begin{align*}
+y &= (\frac{1}{2}(t^2 - 1) + Ce^{-t^2})e^{-t^2} \\
+y &= \frac{1}{2}(t^2 - 1)e^{-t^2} + Ce^{-2t^2}
+\end{align*}
+
+Using the superposition principal, $y_{G,NH} = y_{G,H} + y_{P,NH}$, we will solve for the general solution to the Non-Homogeneous ODE
+
+\begin{align*}
+   y_G,NH &= \frac{1}{2}(t^2 - 1) + ce^{-2t^2} + ce^{-t^2}
+   y_G,NH &= \frac{1}{2}(t^2 - 1) + ce^{-2t^2}
+\end{align*}
+
+Solve the IVP $y(1) = 1$
+
+\begin{align*}
+    1 &= \frac{1}{2}(1 - 1) + ce^{-1^2} \\
+    1 &= c \cdot e^{1} \\
+    c &= e^1
+\end{align*}
+
+Therefore, the solution to the IVP is
+
+\begin{align*}
+    y &= \frac{1}{2}(t^2 - 1) + e^1e^{-2t^2}
+    y &= \frac{1}{2}(t^2 - 1) + e^{1-2t^2}
+\end{align*}
+
+\section*{Problem 10}
+
+\textbf{Problem Statement:} Solve the bernoulli equation $t^2y' + 2ty = 3y^4$
+
+\textbf{Solution:} We will use the substitution $v = y^{1-4}$
+\begin{align*}
+    v &= y^{1-4} \\
+    v &= y^{-3} \\
+    y^3 &= v^{-1} \\
+    y &= v^{-1/3}
+\end{align*}
+
+Now we will find the derivative of $y$
+
+\begin{align*}
+    y &= v^{-1/3} \\
+    \frac{dy}{dt} &= -\frac{1}{3}v^{-4/3}\frac{dv}{dt}
+\end{align*}
+
+Now we will substitute $y$ and $\frac{dy}{dt}$ into the Bernoulli equation
+
+\begin{align*}
+    t^2y' + 2ty = 3y^4
+    y' + \frac{2y}{t} &= \frac{3}{t^2}y^4 \\
+    -\frac{1}{3}v^{-4/3}\frac{dv}{dt} + \frac{2}{t}v^{-1/3} &= \frac{3}{t^2}v^{-4/3} \\
+    -\frac{1}{3}\frac{dv}{dt} + \frac{2}{t}v &= \frac{3}{t^2}v \\
+    \frac{dv}{dt} - \frac{6}{t}v &= -\frac{9}{t^2}v
+\end{align*}
+
+Now we will solve the ODE using the integrating factor method.
+
+\begin{align*}
+    \mu &= e^{\int -\frac{6}{t}dt} \\
+    \mu &= e^{-6\ln|t|} \\
+    \mu &= e^{\ln|t^{-6}|} \\
+    \mu &= t^{-6}
+\end{align*}
+
+Multiplying the ODE by $\mu$
+
+\begin{align*}
+    \mu \frac{dv}{dt} - \frac{d\mu}{dt}v &= \frac{-9}{t^2} \mu \\
+    D[\mu v] &= \frac{-9}{t^2} \mu \\
+    t^{-6}v &= \int -9t^{-8}v \\
+    t^{-6}v &= -\frac{9}{-7}t^{-7}v + c \\
+    v &= \frac{9}{7}t^{-1} + ct^6 \\
+\end{align*}
+
+Now we will substitute $y$ back into the equation for $v$
+
+\begin{align*}
+    v &= y^3 \\
+    y^3 &= \frac{9}{7}t^{-1} + ct^6 \\
+    y &= (\frac{9}{7}t^{-1}+ ct^6)^{-1/3}
+\end{align*}
+
+
 
 \end{document}
