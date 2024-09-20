@@ -1,0 +1,396 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{pgfplots}
+\usepackage{float}
+\usepackage{pgfplotstable}
+\usepackage{booktabs} 
+\usepackage{amsmath} % Add this line to include the amsmath package
+\pgfplotsset{compat=1.18}
+
+% Setup for homework style
+\geometry{margin=1in}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{APPM 2360: Differential Equations}
+\rhead{Homework 4}
+\cfoot{\thepage}
+
+\title{Homework 4}
+\author{Zachariah Galdston}
+\date{9/19/2024}
+
+\begin{document}
+
+\maketitle
+
+\section*{Problem 1}
+\textbf{Problem Statement:} 
+Suppose you have $A_0$ dollars to invest in a savings account earning an annual interest rate of $r$ percent compounded continuously. Furthermore, suppose that you make annual deposits of $d$ dollars to the account. The differential equation governing this situation is:
+
+\[
+\frac{dA}{dt} = rA + d, \quad A(0) = A_0
+\]
+
+\subsection*{(a)}
+\textbf{Problem Statement:}
+Find an equation for the future value $A(t)$ of the account by solving the initial value problem. 
+
+\textbf{Solution:}
+We start with the differential equation:
+\[
+\frac{dA}{dt} = rA + d
+\]
+
+Using the integrating factor method with $\mu = e^{rt}$:
+\begin{align*}
+\frac{dA}{dt} - rA &= d \\
+e^{rt} \frac{dA}{dt} - re^{rt}A &= de^{rt} \\
+\frac{d}{dt}(Ae^{rt}) &= de^{rt} \\
+\end{align*}
+
+Now integrate both sides:
+\[
+Ae^{rt} = \int de^{rt} dt = \frac{d}{r}e^{rt} + C
+\]
+Thus, the general solution is:
+\[
+A(t) = \frac{d}{r} + Ce^{-rt}
+\]
+Using the initial condition $A(0) = A_0$, we solve for $C$:
+\[
+A(0) = \frac{d}{r} + C = A_0 \quad \Rightarrow \quad C = A_0 - \frac{d}{r}
+\]
+Therefore, the solution is:
+\[
+A(t) = \frac{d}{r} + \left(A_0 - \frac{d}{r}\right)e^{-rt}
+\]
+
+\subsection*{(b)}
+\textbf{Problem Statement:}
+Upon graduating from college and starting your career, you have no money. You deposit $d = 1000$ into an account that pays interest at a rate of $8\%$ compounded continuously. Find the future value of the account after 40 years and the interest earned.
+
+\textbf{Solution:}
+We use the formula from part (a) with $r = 0.08$, $d = 1000$, and $A_0 = 0$. The solution becomes:
+\[
+A(t) = \frac{1000}{0.08} + \left(0 - \frac{1000}{0.08}\right)e^{-0.08t}
+\]
+Simplifying:
+\[
+A(t) = 12500(1 - e^{-0.08t})
+\]
+Substituting $t = 40$ years:
+\[
+A(40) = 12500(1 - e^{-0.08 \times 40}) \approx 294156.63
+\]
+The interest earned is the difference between the final balance and the total deposits:
+\[
+\text{Interest} = 294156.63 - 1000 \times 40 = 254156.63
+\]
+
+\subsection*{(c)}
+\textbf{Problem Statement:}
+Find the value of $d$ that would produce a balance of one million dollars after 40 years.
+
+\textbf{Solution:}
+We need to solve for $d$ in the equation:
+\[
+1000000 = \frac{d}{0.08}(1 - e^{-0.08 \times 40})
+\]
+Solving for $d$:
+\[
+d = \frac{1000000 \times 0.08}{1 - e^{-0.08 \times 40}} \approx 3395.95
+\]
+
+\subsection*{(d)}
+\textbf{Problem Statement:}
+If the annual deposit is $d = 2500$, find the value of $r$ that would produce a balance of one million dollars after 40 years.
+
+\textbf{Solution:}
+We need to solve the equation:
+\[
+1000000 = \frac{2500}{r}(1 - e^{-r \times 40})
+\]
+This requires numerical methods, and solving yields $r \approx 0.0904$ or $9.04\%$.
+
+\section*{Problem 2}
+\textbf{Problem Statement:}
+You must be anesthetized with a minimum concentration of 50 milligrams per kilogram. Your weight is 100 kg, and the half-life of the anesthetic is 10 hours. Find the dose needed to stay anesthetized for 3 hours.
+
+\textbf{Solution:}
+The elimination of the anesthetic follows an exponential decay model:
+\[
+A(t) = A_0 e^{-kt}
+\]
+
+We will solve for $k$ using the half-life of 10 hours:
+
+\begin{align*}
+\frac{1}{2}A_0 &= A_0 e^{-10k} \\
+\frac{1}{2} &= e^{-10k} \\
+\ln \frac{1}{2} &= -10k \\
+k &= \frac{\ln 2}{10}
+\end{align*}
+At $t = 3$ hours, we need $A(3) = 50 \times 100 = 5000$ mg. Solving for $A_0$:
+\[
+5000 = A_0 e^{-3 \frac{\ln 2}{10}} \quad \Rightarrow \quad A_0 \approx 6160 \text{ mg or 6.16 grams}
+\]
+
+\section*{Problem 3}
+\textbf{Problem Statement:}
+A tank starts with 300 gallons of pure water, and a salt solution flows in at 3 gallons per minute while solution drains at 1 gallon per minute. Find the salt content when the tank reaches 600 gallons.
+
+\textbf{Solution:}
+The differential equation governing the salt content $S(t)$ is:
+\begin{align*}
+\frac{dS}{dt} &= (RateIn)(ConcentrationIn) - (RateOut)(ConcentrationOut) \\
+&= (3 \cdot 1) - (\frac{S}{300+2t} \cdot 1) 
+\end{align*}
+Solving the differential equation:
+\begin{align*}
+\frac{dS}{dt} &= 3 - \frac{S}{300+2t} \\
+\frac{dS}{dt} + \frac{S}{300+2t} &= 3
+\end{align*}
+
+We use the integrating factor method with $\mu = e^{\int \frac{1}{300+2t} dt} = e^{\frac{1}{2} \ln(300+2t)} = (300+2t)^{\frac{1}{2}}$:
+\begin{align*}
+(300+2t)^{\frac{1}{2}} \frac{dS}{dt} + (300+2t)^{-\frac{1}{2}}S &= 3 \\
+\frac{d}{dt}((300+2t)^{\frac{1}{2}}S) &= 3(300+2t)^{\frac{1}{2}} \\
+\end{align*}
+
+Integrating both sides:
+\begin{align*}
+(300+2t)^{\frac{1}{2}}S &= 3 \int (300+2t)^{\frac{1}{2}} dt \\
+\end{align*}
+
+Solving the right side integral:
+\begin{align*}
+3 \int (300+2t)^{\frac{1}{2}} dt &= 3 \left( \frac{2}{3} (300+2t)^{\frac{3}{2}} \right) + C \\
+&= (300+2t)^{\frac{3}{2}} + C
+\end{align*}
+
+Substitute back into the differential equation:
+
+\begin{align*}
+(300+2t)^{\frac{1}{2}}S &= (300+2t)^{\frac{3}{2}} + C \\
+S &= (300+2t) + \frac{C}{(300+2t)^{-\frac{1}{2}}}
+\end{align*}
+
+Solving for $C$ using the initial condition $S(0) = 0$:
+
+\begin{align*}
+0 &= 300 + \frac{C}{300^{-\frac{1}{2}}} \\
+C = -300 \cdot 300^\frac{1}{2} 
+\end{align*}
+
+Therefore, the solution is:
+
+\[ 
+S(t) = 300 + 2t - \frac{300(300^\frac{1}{2})}{(300+2t)^{-\frac{1}{2}}}
+\]
+
+To solve for the time when the tank reaches 600 gallons, we set must solve for $t$. We know the tank is increaseing at rate $RateIN - RateOut = 3-1$ gallons per minute, so we solve for $t$ in the equation $600 = 300 + 2t$ to find $t = 150$ minutes. Substituting $t = 150$ into the solution:
+
+\begin{align*}
+S(t) &= 300 + 2(t) - \frac{300(300^\frac{1}{2})}{(300+2t)^{-\frac{1}{2}}} \\
+S(150) &= 300 + 2(150) - \frac{300(300^\frac{1}{2})}{(300+2(150))^{-\frac{1}{2}}} \\
+&= 600 - \frac{300(300^\frac{1}{2})}{(600)^{-\frac{1}{2}}} \\
+&= 600 - \frac{300(300^\frac{1}{2})}{\sqrt{600}} \\
+&\approx 387.87 lbs
+\end{align*}
+    
+\section*{Problem 4}
+\textbf{Problem Statement:}
+A small single-stage rocket of mass $m(t)$ is launched vertically. The air resistance is linear, and the rocket consumes fuel at a constant rate. The velocity of the rocket is modeled by the differential equation:
+\[
+\frac{dv}{dt} + \frac{k - \lambda}{m_0 - \lambda t} v = -g + \frac{R}{m_0 - \lambda t}
+\]
+where $m_0 = 200$ kg, $R = 2000$ N, $\lambda = 1$ kg/s, $g = 9.8$ m/s\(^2\), $k = 3$ kg/s, and $v(0) = 0$.
+
+\subsection*{(a)}
+\textbf{Problem Statement:}
+Find the velocity $v(t)$ of the rocket.
+
+\textbf{Solution:}
+Solve using the integrating factor method with $\mu = (200-t)^{-2}$:
+\begin{align*}
+\frac{dv}{dt} + \frac{3-1}{200-t}v = -9.8 + \frac{2000}{200-t} \\
+(200-t)^{-2} \frac{dv}{dt} + (200-t)^{-3}v = -9.8(200-t)^{-2} + 2000(200-t)^{-3} \\
+\frac{d}{dt}((200-t)^{-2}v) = -9.8(200-t)^{-2} + 2000(200-t)^{-3} \\
+\end{align*}
+
+Integrating both sides:
+
+\begin{align*}
+(200-t)^{-2}v &= 9.8(200-t)^{-1} - 1000(200-t)^{-2} + C \\
+v &= 9.8(200-t) - 1000 + C(200-t)^2
+\end{align*}
+
+Solving for $C$ using the initial condition $v(0) = 0$:
+
+\begin{align*}
+0 &= 9.8(200) - 1000 + C(200)^2 \\
+C &= \frac{9.8(200)-1000}{200^2} = \frac{1960-1000}{40000} = 0.024
+\end{align*}
+
+So the final solution is:
+
+\[
+v(t) = 9.8(200-t) - 1000 + 0.024(200-t)^2
+\]
+
+\subsection*{(b)}
+\textbf{Problem Statement:}
+Find the height $s(t)$ of the rocket.
+
+\textbf{Solution:}
+The height is found by integrating $v(t)$:
+\[
+s(t) = \int v(t) dt
+\]
+
+Substitute $v(t)$ into the integral and C = 0:
+
+\begin{align*}
+s(t) &= \int -9.8(200-t) + 1000 + 0.024(200-t)^2 dt \\
+&= \int 0.024t^2 + 0.2t dt \\
+&= 0.008t^3 + 0.1t^2 + C
+&= 0.008t^3 + 0.1t^2
+\end{align*}
+
+
+\subsection*{(c)}
+\textbf{Problem Statement:}
+Find the burnout time $t_b$ when all the fuel is consumed.
+
+\textbf{Solution:}
+The burnout time is when $m(t) = 200 - \lambda t = 200-50$. Solving for $t$:
+\begin{align*}
+200 - 50 &= 200 - t \\ 
+t &= 50 \text{ seconds}
+\end{align*}
+
+
+\subsection*{(d)}
+\textbf{Problem Statement:}
+Find the velocity at burnout.
+
+\textbf{Solution:}
+Substitute $t_b = 50$ s into the velocity equation $v(t)$:
+\[
+v(50) = 9.8(200-50) - 1000 + 0.024(200-50)^2
+\]
+After simplifying, the velocity at burnout is approximately $v(50) \approx 1010 \text{ m/s}$.
+
+\subsection*{(e)}
+\textbf{Problem Statement:}
+Find the height at burnout.
+
+\textbf{Solution:}
+Substitute $t_b = 50$ s into $s(t)$ to find the height:
+\[
+s(50) = 0.008(50)^3 + 0.1(50)^2 = 1250 \text{ m}
+\]
+The height at burnout is approximately $s(50) \approx 1250 \text{ m}$.
+
+\section*{Problem 5}
+\textbf{Problem Statement:}
+Your air conditioner breaks down at noon. The temperature inside the house is 75$^\circ$F, and outside it is 95$^\circ$F. The time constant for the house is 4 hours. Find the temperature inside the house after 2 hours.
+
+\subsection*{(a)}
+\textbf{Solution:}
+The temperature follows Newton's Law of Cooling:
+\[
+T(t) = T_{\text{out}} + (T_0 - T_{\text{out}}) e^{-kt}
+\]
+where $k = \frac{1}{4}$ and $T_0 = 75^\circ$F. Substituting $t = 2$ hours:
+\[
+T(2) = 95 + (75 - 95)e^{-\frac{2}{4}} \approx 82.87^\circ F
+\]
+
+\subsection*{(b)}
+\textbf{Problem Statement:}
+Find the time when the temperature reaches 80$^\circ$F.
+
+\textbf{Solution:}
+We solve for $t$ in the equation:
+\[
+80 = 95 + (75 - 95)e^{-\frac{t}{4}}
+\]
+Solving this gives:
+\[
+t \approx 1 \text{ hour and } 9 \text{ minutes}
+\]
+
+\section*{Problem 6}
+\textbf{Problem Statement:}
+Consider the differential equation for population growth:
+\[
+\frac{dP}{dt} = kP^{1+c}
+\]
+where $c = 0.01$. Find the solution given the initial population and doubling rate.
+
+\subsection*{(a)}
+\textbf{Solution:}
+We separate variables and integrate:
+\begin{align*}
+    \int P^{-1.01} dP &= \int k dt \\
+    \frac{-100}{P^\frac{1}{100}} &= kt + C
+\end{align*}
+
+Solving for C with the initial condition $P(0) = 10$:
+
+\begin{align*}
+    \frac{-100}{10^\frac{1}{100}} &= 0 + C \\
+    C &= -97.7237
+\end{align*}
+
+Solving for $k$ with the doubling rate condition $P(5) = 20$:
+
+\begin{align*}
+    \frac{-100}{20^\frac{1}{100}} &= 5k - 97.7237 \\
+    \frac{-100}{(20)^\frac{1}{100}} + 97.7237 &= 5k \\
+    k &\approx 0.135
+\end{align*}
+
+Therefore, the solution is:
+
+\[
+P(t) =  \left( \frac{0.135t - 97.7237}{-100} \right)^{-100}
+\]
+\subsection*{(b)}
+\textbf{Problem Statement:}
+Find the population after 50 and 100 months.
+
+\textbf{Solution:}
+Substitute $t = 50$ and $t = 100$ into the solution from part (a):
+
+\begin{align*}
+    P(50) &=  \left( \frac{0.135(50) - 97.7237}{-100} \right)^{-100} \approx 12,835
+    P(100) &= \left( \frac{0.135(100) - 97.7237}{-100} \right)^{-100} \approx 28,613,327
+\end{align*}
+
+\subsection*{(c)}
+\textbf{Problem Statement:}
+Find the doomsday time $t_0$ when the population becomes infinite.
+
+\textbf{Solution:}
+The population becomes infinite when there is a 0 in the demoninator of the solution from part (a). Solving for $t$:
+
+\begin{align*}
+    \frac{-100}{P^\frac{1}{100}} &= kt + C
+    \frac{-100}{kt + c} = P^\frac{1}{100}
+    \frac{-100}{0.135t - 97.7237} = P^\frac{1}{100}
+\end{align*}
+
+Sett8ng the denominator to 0 gives:
+
+\begin{align*}
+    0.135t - 97.7237 &= 0 \\
+    t &= \frac{97.7237}{0.135} \approx 724.28 \text{ months}
+\end{align*}
+
+\end{document}
